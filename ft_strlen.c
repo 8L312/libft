@@ -6,13 +6,12 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 17:59:52 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/20 18:01:44 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/25 17:48:02 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stddef.h>
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	unsigned long	n;
 

@@ -6,12 +6,10 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 11:45:22 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/20 18:03:30 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/25 17:53:54 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 void	ft_bzero(void *str, size_t n)
 {

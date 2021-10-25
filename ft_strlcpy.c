@@ -6,13 +6,10 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:36:52 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/20 18:06:36 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/25 17:55:50 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
-#include <stddef.h>
-#include <stdlib.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
