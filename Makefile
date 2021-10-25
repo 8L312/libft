@@ -6,7 +6,7 @@
 #    By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 11:43:19 by rmonney           #+#    #+#              #
-#    Updated: 2021/10/20 17:47:10 by rmonney          ###   ########.fr        #
+#    Updated: 2021/10/25 16:50:46 by rmonney          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,7 @@ RM		= rm -f
 NAME	= libft.a
 
 ${NAME}:	${OBJS}
-			gcc -Wall -Werror -Wextra -o ${NAME} ${OBJS} 
-			ar rc libft.a ${OBJS}
+			ar rc ${NAME} ${OBJS}
 			ranlib libft.a
 
 all:		${NAME}
