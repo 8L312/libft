@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 17:38:12 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/25 18:12:08 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/25 18:50:16 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -54,7 +54,7 @@ static int	valuec(char *str)
 	return (c);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	nb;
 	int	a;
