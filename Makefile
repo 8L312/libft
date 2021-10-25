@@ -6,7 +6,7 @@
 #    By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 11:43:19 by rmonney           #+#    #+#              #
-#    Updated: 2021/10/25 16:50:46 by rmonney          ###   ########.fr        #
+#    Updated: 2021/10/25 17:29:22 by rmonney          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,24 @@ OBJS	= ${SRCS: .c=.o}
 
 RM		= rm -f
 
-NAME	= libft.a
-
-${NAME}:	${OBJS}
-			ar rc ${NAME} ${OBJS}
-			ranlib libft.a
+NAME	= libft.i
 
 all:		${NAME}
+
+${NAME}:	allo
+			ar rc ${NAME} *.o
+			rm *.o
+			ranlib ${NAME}
+
+allo:		${SRCS}
+			gcc -c ${SRCS}
 
 clean:	
 			${RM} ${OBJS}
 
 fclean:		clean
 			${RM} ${NAME}
+
+re:			fclean all
+
+.PHONY:		all clean fclean re allo
