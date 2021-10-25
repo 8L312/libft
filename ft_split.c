@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:20:19 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/25 15:08:32 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/25 18:34:04 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -62,11 +62,11 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	index = -1;
-	while (i <= ft_strlen((char *)s))
+	while (i <= ft_strlen(s))
 	{
 		if (s[i] != c && index < 0)
 			index = i;
-		else if ((s[i] == c || i == ft_strlen((char *)s)) && index >= 0)
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
 		{
 			split[j++] = word_dup((char *)s, index, i);
 			index = -1;

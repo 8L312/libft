@@ -6,13 +6,10 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 18:50:44 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/20 18:19:26 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/25 18:13:44 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {

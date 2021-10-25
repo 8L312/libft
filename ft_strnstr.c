@@ -6,14 +6,12 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 16:10:36 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/20 18:17:18 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/25 18:10:56 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-int	cfinder(char *s, const char *t, size_t n)
+static int	cfinder(char *s, const char *t, size_t n)
 {
 	int	c;
 	int	i;
@@ -42,7 +40,7 @@ int	cfinder(char *s, const char *t, size_t n)
 	return (c);
 }
 
-int	afinder(char *s, const char *t, size_t n)
+static int	afinder(char *s, const char *t, size_t n)
 {
 	int	a;
 

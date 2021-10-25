@@ -6,14 +6,12 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 19:01:22 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/20 18:26:47 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/25 18:35:03 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-int	caracounter(int n)
+static int	caracounter(int n)
 {
 	int	c;
 	int	i;
@@ -32,7 +30,7 @@ int	caracounter(int n)
 	return (c);
 }
 
-int	power(int nb, int pow)
+static int	power(int nb, int pow)
 {
 	int	a;
 

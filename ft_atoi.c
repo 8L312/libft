@@ -6,14 +6,12 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 17:38:12 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/20 18:18:15 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/25 18:12:08 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-int	whatsign(char *str)
+static int	whatsign(char *str)
 {
 	int	a;
 	int	sign;
@@ -39,7 +37,7 @@ int	whatsign(char *str)
 	return (sign);
 }
 
-int	valuec(char *str)
+static int	valuec(char *str)
 {
 	int	a;
 	int	c;
