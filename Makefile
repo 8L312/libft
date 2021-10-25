@@ -6,7 +6,7 @@
 #    By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 11:43:19 by rmonney           #+#    #+#              #
-#    Updated: 2021/10/25 17:29:22 by rmonney          ###   ########.fr        #
+#    Updated: 2021/10/25 17:31:56 by rmonney          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJS	= ${SRCS: .c=.o}
 
 RM		= rm -f
 
-NAME	= libft.i
+NAME	= libft.a
 
 all:		${NAME}
 
