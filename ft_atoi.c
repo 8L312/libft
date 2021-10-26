@@ -6,15 +6,15 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 17:38:12 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/25 18:54:21 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/26 20:23:42 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	whatsign(const char *str)
+static long int	whatsign(const char *str)
 {
-	int	a;
-	int	sign;
+	long int	a;
+	long int	sign;
 
 	a = 0;
 	sign = 0;
@@ -22,25 +22,26 @@ static int	whatsign(const char *str)
 		|| str [a] == '\v' || str[a] == '\f' || str[a] == '\r')
 		a ++;
 	if (str[a] == 43)
-		sign ++;
+		sign = 1;
 	else if (47 < str[a] && str[a] <= 57)
-		sign ++;
+		sign = 1;
 	else if (str[a] == 45)
-		sign --;
-	else
-		sign += 0;
-	a ++;
-	if (47 < str[a] && str[a] <= 57)
-		sign += 0;
+		sign = -1;
 	else
 		sign = 0;
+	if (str[a] == 43 || str[a] == 45)
+	{
+		a++;
+		if (str[a] <= 47 || 57 < str[a])
+			sign = 0;
+	}
 	return (sign);
 }
 
-static int	valuec(const char *str)
+static long int	valuec(const char *str)
 {
-	int	a;
-	int	c;
+	long int	a;
+	long int	c;
 
 	a = 0;
 	c = 1;
@@ -56,11 +57,11 @@ static int	valuec(const char *str)
 
 int	ft_atoi(const char *str)
 {
-	int	nb;
-	int	a;
-	int	c;
-	int	b;
-	int	sign;
+	long int	nb;
+	long int	a;
+	long int	c;
+	long int	b;
+	long int	sign;
 
 	a = 0;
 	nb = 0;
@@ -84,11 +85,9 @@ int	ft_atoi(const char *str)
 /*
 int	main(void)
 {
-	int		i;
-	char	*s;
+	char	*w;
 
-	s = "	 -123y4";
-	i = ft_atoi(s);
-	printf("%d\n", i);
-	printf("%d\n", atoi(s));
+	w = "2147483647999";
+	printf("%d <-- ft_atoi\n", ft_atoi(w));
+	printf("%d <-- atoi\n", atoi(w));
 }*/
