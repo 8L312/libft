@@ -6,12 +6,12 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 17:56:09 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/20 17:56:07 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:53:05 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isalpha(char c)
+int	ft_isalpha(int c)
 {
 	int	a;
 

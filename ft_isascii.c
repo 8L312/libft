@@ -6,17 +6,17 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 09:35:53 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/20 17:59:54 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:54:17 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isascii(int a)
+int	ft_isascii(int c)
 {
 	int	i;
 
 	i = 0;
-	if (0 <= a && a < 128)
+	if (0 <= c && c < 128)
 		i ++;
 	return (i);
 }

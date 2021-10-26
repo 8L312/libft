@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 17:50:50 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/25 18:58:28 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/26 14:58:55 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 # include <string.h>
 # include <unistd.h>
 # include <assert.h>
+# include <ctype.h>
 
-int		ft_isalpha(char c);
-int		ft_isdigit(char c);
-int		ft_isalnum(char c);
-int		ft_isascii(int a);
-int		ft_isprint(int a);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
 size_t	ft_strlen(const char *str);
 void	*ft_memset(void *str, int c, size_t len);
 void	ft_bzero(void *str, size_t n);
