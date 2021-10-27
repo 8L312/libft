@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:20:19 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/25 18:34:04 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/27 15:38:28 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -84,11 +84,11 @@ int	main(void)
 	char	**sp;
 	int		i;
 
-	sp = ft_split("8888judas88lol8kewkew8", '8');
+	sp = ft_split("split  ||this|for|me|||||!|", '|');
 	i = 0;
 	while (sp[i] != NULL)
 	{
-		printf("%s\n", sp[i]);
+		printf("%s", sp[i]);
 		i ++;
 	}
 	return (0);

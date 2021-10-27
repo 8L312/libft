@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 14:37:39 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/25 18:30:08 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/27 14:31:34 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -22,6 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	b = 0;
 	i = ft_strlen(s1) + ft_strlen(s2);
 	str = malloc(sizeof(char) * i + 1);
+	if (!str)
+		return (NULL);
 	while (s1[a] != '\0')
 	{
 		str[a] = s1[a];
