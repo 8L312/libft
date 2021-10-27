@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 16:10:36 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/25 18:10:56 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/27 12:59:38 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -74,7 +74,7 @@ char	*ft_strnstr(const char *str, const char *tofind, size_t len)
 	strc = (char *)str;
 	a = 0;
 	c = 0;
-	if (tofind == NULL || *tofind == '\0')
+	if (*tofind == '\0')
 		return (strc);
 	c = cfinder(strc, tofind, len);
 	a = afinder(strc, tofind, len);

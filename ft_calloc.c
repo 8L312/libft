@@ -6,35 +6,37 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 18:50:44 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/25 18:13:44 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/27 13:36:31 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr;
-	int		a;
+	void			*ptr;
+	char			*ptc;
+	unsigned long	a;
 
-	a = count * size;
+	a = 0;
 	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ptc = (char *)ptr;
+	while (a < (count * size))
+	{
+		ptc[a] = '\0';
+		a ++;
+	}
 	return (ptr);
 }
 /*
 int main()
 {
-	int a;
+	void	*i = ft_calloc(3, sizeof(int));
+	void	*s = calloc(3, sizeof(int));
 
-	a = 3;
-	int *i = (int *)ft_calloc(3, sizeof(int));
-	char *s = (char *)ft_calloc(3, sizeof(char));
 	assert(i != NULL);
 	assert(s != NULL);
-	while (a > 0)
-	{
-		printf("%d\n", i[a]);
-		a --;
-	}
-	printf("%s\n", s);
+	printf("%d\n", memcmp(i, s, 3 * sizeof(char)));
 	return (0);
 }*/

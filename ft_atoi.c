@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 17:38:12 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/26 20:23:42 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/27 13:04:56 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -87,7 +87,7 @@ int	main(void)
 {
 	char	*w;
 
-	w = "2147483647999";
+	w = "99999";
 	printf("%d <-- ft_atoi\n", ft_atoi(w));
 	printf("%d <-- atoi\n", atoi(w));
 }*/
