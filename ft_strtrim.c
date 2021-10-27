@@ -6,32 +6,75 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:29:43 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/25 18:32:20 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/27 18:13:55 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
+static int	chartest(char *s, char *set, int i)
+{
+	int	trigger;
+	int	a;
+
+	trigger = 0;
+	a = 0;
+	while (set[a] != s[i])
+		a ++;
+	if (s[i] == set[a])
+		trigger = 1;
+	return (trigger);
+}
+
+int	ft_start(char *s, char *set)
+{
+	int	trigger;
+	int	start;
+
+	start = 0;
+	trigger = chartest(s, set, start);
+	while (trigger == 1)
+	{
+		start ++;
+		trigger = chartest(s, set, start);
+	}
+	return (start);
+}
+
+int	ft_end(char *s, char *set)
+{
+	int	trigger;
+	int	end;
+
+	end = 0;
+	trigger = 0;
+	while (s[end] != '\0')
+		end ++;
+	end --;
+	trigger = chartest(s, set, end);
+	while (trigger == 1)
+	{
+		end --;
+		trigger = chartest(s, set, end);
+	}
+	return (end);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char			*str;
-	char			*cs1;
-	char			*cset;
-	unsigned long	i;
+	char	*str;
+	int		start;
+	int		end;
+	int		i;
 
-	cs1 = (char *)s1;
-	cset = (char *)set;
 	i = 0;
-	str = malloc(sizeof(char) * ft_strlen(cs1) - (2 * ft_strlen(cset)) + 1);
-	while (*cs1 == *cset)
+	start = ft_start((char *)s1, (char *)set);
+	end = ft_end((char *)s1, (char *)set);
+	str = malloc(sizeof(char) * (end - start) + 1);
+	while (start < end)
 	{
-		cs1 ++;
-		cset ++;
-	}
-	while (i <= ft_strlen(cs1 - (2 * ft_strlen(cset))) + 1)
-	{
-		str[i] = *cs1;
-		cs1 ++;
+		str[i] = s1[start];
 		i ++;
+		start ++;
 	}
 	str[i] = '\0';
 	return (str);
