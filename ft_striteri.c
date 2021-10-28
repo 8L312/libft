@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:28:30 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/21 14:45:55 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/28 14:40:22 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,16 +18,16 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	i = 0;
 	while (s[i] != '\0')
 	{
-		(*f)(i, &*s);
+		(*f)(i, s);
 		i ++;
 	}
 }
-/*
+
 void	fct(unsigned int i, char *s)
 {
 	s[i] -= 32;
 }
-
+/*
 int	main()
 {
 	char str[5] = "judas";
