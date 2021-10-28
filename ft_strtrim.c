@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 14:29:43 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/27 18:13:55 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/10/28 13:53:25 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,14 +18,17 @@ static int	chartest(char *s, char *set, int i)
 
 	trigger = 0;
 	a = 0;
-	while (set[a] != s[i])
-		a ++;
-	if (s[i] == set[a])
-		trigger = 1;
+	while (set[a] != '\0' && trigger != 1)
+	{
+		if (set[a] == s[i])
+			trigger = 1;
+		else if (set[a] != s[i])
+			a ++;
+	}
 	return (trigger);
 }
 
-int	ft_start(char *s, char *set)
+static int	ft_start(char *s, char *set)
 {
 	int	trigger;
 	int	start;
@@ -40,7 +43,7 @@ int	ft_start(char *s, char *set)
 	return (start);
 }
 
-int	ft_end(char *s, char *set)
+static int	ft_end(char *s, char *set)
 {
 	int	trigger;
 	int	end;
@@ -69,8 +72,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	start = ft_start((char *)s1, (char *)set);
 	end = ft_end((char *)s1, (char *)set);
-	str = malloc(sizeof(char) * (end - start) + 1);
-	while (start < end)
+	if (start > end)
+		return ((char *)s1);
+	str = malloc(sizeof(char) * (end - start) + 2);
+	if (!str)
+		return (NULL);
+	while (start <= end)
 	{
 		str[i] = s1[start];
 		i ++;
@@ -82,8 +89,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 /*
 int main()
 {
-	char *s1 = "lolkewkewlol";
-	char *set = "lol";
+	char *s1 = "lol";
+	char *set = "l";
 	printf("%s\n", ft_strtrim(s1, set));
 	return (0);
 }*/
