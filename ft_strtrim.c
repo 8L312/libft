@@ -5,88 +5,65 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 14:29:43 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/28 15:03:55 by rmonney          ###   ########.fr       */
+/*   Created: 2021/11/02 14:57:56 by rmonney           #+#    #+#             */
+/*   Updated: 2021/11/02 14:58:00 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	chartest(char *s, char *set, int i)
+static int	ft_getstart(const char *s1, const char *set)
 {
-	int	trigger;
-	int	a;
+	size_t	len;
+	size_t	i;
 
-	trigger = 0;
-	a = 0;
-	while (set[a] != '\0' && trigger != 1)
+	len = ft_strlen(s1);
+	i = 0;
+	while (i < len)
 	{
-		if (set[a] == s[i])
-			trigger = 1;
-		else if (set[a] != s[i])
-			a ++;
+		if (ft_strchr(set, s1[i]) == 0)
+			break ;
+		i++;
 	}
-	return (trigger);
+	return (i);
 }
 
-static int	ft_start(char *s, char *set)
+static int	ft_getend(const char *s1, const char *set)
 {
-	int	trigger;
-	int	start;
+	size_t	len;
+	size_t	i;
 
-	start = 0;
-	trigger = chartest(s, set, start);
-	while (trigger == 1)
+	len = ft_strlen(s1);
+	i = 0;
+	while (i < len)
 	{
-		start ++;
-		trigger = chartest(s, set, start);
+		if (ft_strchr(set, s1[len - i - 1]) == 0)
+			break ;
+		i++;
 	}
-	return (start);
-}
-
-static int	ft_end(char *s, char *set)
-{
-	int	trigger;
-	int	end;
-
-	end = 0;
-	trigger = 0;
-	while (s[end] != '\0')
-		end ++;
-	end --;
-	trigger = chartest(s, set, end);
-	while (trigger == 1)
-	{
-		end --;
-		trigger = chartest(s, set, end);
-	}
-	return (end);
+	return (len - i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
 	int		start;
 	int		end;
-	int		i;
+	char	*newstr;
 
-	i = 0;
-	start = ft_start((char *)s1, (char *)set);
-	end = ft_end((char *)s1, (char *)set);
-	if (start > end)
-	{
-		str = malloc(sizeof(char) * 1);
-		if (!str)
-			return (NULL);
-		return ("\0");
-	}
-	str = malloc(sizeof(char) * (end - start) + 2);
-	if (!str)
+	if (s1 == NULL)
 		return (NULL);
-	while (start <= end)
-		str[i++] = s1[start++];
-	str[i] = '\0';
-	return (str);
+	if (set == NULL)
+		return (ft_strdup(s1));
+	start = ft_getstart(s1, set);
+	end = ft_getend(s1, set);
+	if (start >= end)
+		return (ft_strdup(""));
+	newstr = (char *)malloc(sizeof(char) * (end - start + 1));
+	if (newstr == NULL)
+		return (NULL);
+	ft_strlcpy(newstr, s1 + start, end - start + 1);
+	return (newstr);
 }
+
 /*
 int main()
 {

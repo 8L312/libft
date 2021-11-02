@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c   hihi                                 :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 16:31:38 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/28 15:46:19 by rmonney          ###   ########.fr       */
+/*   Created: 2021/11/02 14:59:02 by rmonney           #+#    #+#             */
+/*   Updated: 2021/11/02 14:59:08 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,22 +14,17 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*sc;
-	unsigned char	cc;
 
 	sc = (unsigned char *)s;
-	cc = (unsigned char)c;
-	if (!n)
-		return (NULL);
-	while (*sc != cc && n > 0 && *sc != '\0')
+	while (n--)
 	{
-		sc ++;
-		n --;
+		if (*sc == (unsigned char)c)
+			return (sc);
+		sc++;
 	}
-	if (*sc == cc)
-		return ((void *)sc);
-	else
-		return (NULL);
+	return (NULL);
 }
+
 /*
 int main()
 {
