@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:20:19 by rmonney           #+#    #+#             */
-/*   Updated: 2021/10/27 15:38:28 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/11/02 19:47:10 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -39,6 +39,8 @@ static char	*word_dup(char *str, int start, int finish)
 
 	i = 0;
 	word = malloc(sizeof(char) * (finish - start + 1));
+	if (!word)
+		return (NULL);
 	while (start < finish)
 	{
 		word[i] = str[start];
@@ -49,16 +51,12 @@ static char	*word_dup(char *str, int start, int finish)
 	return (word);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**spliter(char **split, char const *s, char c)
 {
 	unsigned long	i;
 	unsigned long	j;
 	int				index;
-	char			**split;
 
-	split = malloc((sizeof(char *) * word_counter((char *)s, c) + 1));
-	if (!split)
-		return (NULL);
 	i = 0;
 	j = 0;
 	index = -1;
@@ -71,12 +69,25 @@ char	**ft_split(char const *s, char c)
 			split[j++] = word_dup((char *)s, index, i);
 			index = -1;
 		}
-		i++;
+		i ++;
 	}
-	split[j] = NULL;
-	free(split);
+	split[j] = 0;
 	return (split);
 }
+
+char	**ft_split(char const *s, char c)
+{
+	char			**split;
+
+	if (!s)
+		return (NULL);
+	split = (char **)malloc((sizeof(char *) * word_counter((char *)s, c) + 1));
+	if (!split)
+		return (NULL);
+	split = spliter(split, s, c);
+	return (split);
+}
+
 /*
 #include "ft_strlen.c"
 int	main(void)
@@ -84,7 +95,7 @@ int	main(void)
 	char	**sp;
 	int		i;
 
-	sp = ft_split("split  ||this|for|me|||||!|", '|');
+	sp = ft_split("|||split  ||this|for|me|||||!|", '|');
 	i = 0;
 	while (sp[i] != NULL)
 	{
