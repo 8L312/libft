@@ -6,7 +6,7 @@
 /*   By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:20:19 by rmonney           #+#    #+#             */
-/*   Updated: 2021/11/02 19:47:10 by rmonney          ###   ########.fr       */
+/*   Updated: 2021/11/03 15:16:58 by rmonney          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -77,7 +77,7 @@ static char	**spliter(char **split, char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char			**split;
+	char	**split;
 
 	if (!s)
 		return (NULL);
