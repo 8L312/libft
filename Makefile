@@ -6,7 +6,7 @@
 #    By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 11:43:19 by rmonney           #+#    #+#              #
-#    Updated: 2021/11/03 14:01:12 by rmonney          ###   ########.fr        #
+#    Updated: 2021/11/03 14:55:48 by rmonney          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ FLAGS	= -Wall -Werror -Wextra
 
 all:		${NAME}
 
-${NAME}:	
-			${CC} ${FLAGS} ${ONLYO} ${SRCS}
-			ar rc ${NAME} ${OBJS}
-			ranlib ${NAME}
+${NAME}:	${SRCS}	
+				${CC} ${FLAGS} ${ONLYO} ${SRCS}
+				ar rc ${NAME} ${OBJS}
+				ranlib ${NAME}
 
 clean:	
 			${RM} ${OBJS}
