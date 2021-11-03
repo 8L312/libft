@@ -6,7 +6,7 @@
 #    By: rmonney <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 11:43:19 by rmonney           #+#    #+#              #
-#    Updated: 2021/10/25 17:43:41 by rmonney          ###   ########.fr        #
+#    Updated: 2021/11/03 14:01:12 by rmonney          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,22 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strle
 
 OBJS	= *.o
 
+ONLYO	= -c
+
 RM		= rm -f
 
 NAME	= libft.a
 
+CC		= gcc
+
+FLAGS	= -Wall -Werror -Wextra
+
 all:		${NAME}
 
-${NAME}:	allo
-			ar rc ${NAME} *.o
+${NAME}:	
+			${CC} ${FLAGS} ${ONLYO} ${SRCS}
+			ar rc ${NAME} ${OBJS}
 			ranlib ${NAME}
-
-allo:		${SRCS}
-			gcc -c ${SRCS}
 
 clean:	
 			${RM} ${OBJS}
@@ -35,4 +39,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re allo
+.PHONY:		all clean fclean re
